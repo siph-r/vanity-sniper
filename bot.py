@@ -23,5 +23,5 @@ def check_invite(vanity):
         print("Vanity not found!")
         sleep(0.2)
 while True:
-    Thread(target=check_invite, args=["celeb"]).start() 
+    Thread(target=check_invite, args=["fold"]).start() 
     #time.sleep(0.1)# Change vanity to your vanity      
