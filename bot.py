@@ -8,10 +8,9 @@ token = config['token'] # User account token
 proxy = config['proxy'] # Rotating proxy
 server = config['server'] # Server ID to add vanity too
 def check_invite(vanity):
-    url = "https://discord.com/api/v9/invites/" + vanity
-    src = get(url, proxies={
-        "all://": "http://" + config['proxy']
-    })
+   # url = "https://discord.com/api/v9/invites/" + vanity
+    src = get(url, proxies={"all://": "http://" + config['proxy']})
+    src = get(url, proxies=None)
     if src.status_code == 404:
         print("Vanity found!")
         headers = {'authorization': token}
@@ -20,8 +19,8 @@ def check_invite(vanity):
         print(src.text)
         exit()
     else:
-        print("Vanity not found!")
+        #print("Vanity not found!")
         sleep(0.2)
 while True:
-    Thread(target=check_invite, args=["fold"]).start() 
-    #time.sleep(0.1)# Change vanity to your vanity      
+    Thread(target=check_invite, args=["racist"]).start() 
+    #sleep(0.1)# Change vanity to your vanity      
